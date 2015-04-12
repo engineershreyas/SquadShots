@@ -1,11 +1,32 @@
 <!DOCTYPE html>
   <html>
   	<head>
-  		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
   		<title>Album</title>
   	</head>
   	<body>
-      <form method = "post" action="{{ url_for('upload')}}">
+      <button onclick="myFunction()">Upload File</button>
+
+      <form enctype="multipart/form-data" action="{{ url_for('upload')}}" method="post">
+        <input id="myimage" type="file" name = "file" />
+      </form>
+
+      <script>
+      function table{
+
+
+
+
+
+        var row =
+        var col =
+      }
+      </script>
+
+      <table>
+
+
+      </table>
+      <!-- <form method = "post" action="{{ url_for('upload')}}">
         <div class="file-field input-field">
           <input class="file-path validate" type="text"/>
             <div class="btn">
@@ -14,11 +35,31 @@
               <input type = "submit"/>
             </div>
         </div>
-      </form>
+      </form> -->
 
       <table>
-        <img src = "{{filename}}"/>
+        <img id = "myimg" src = "{{filename}}"/>
       </table>
+
+      <script>
+        function pictotable{
+
+          for(var i = 0; i < num_rows; i++)
+        {
+            tbody += "<tr>";
+            for(var j = 0; j < 4; j++)
+            {
+                "<td>" = readImg();
+            }
+            tbody += "</tr><br />";
+        }
+      </script>
+
+      <script>
+        function readImg() {
+          document.getElementById("myimg").src="{{filename}}";
+          }
+      </script>
     </body>
 
   	</body>
