@@ -1,4 +1,4 @@
-__author__ = 'api.kyle.kaplan1 (Kyle Kaplan)'
+
 
 
 import sys
@@ -40,7 +40,7 @@ class Contacts(object):
         return 'No contact email found for this person'
 
 def main():
-    hi = Contacts("kyle.kaplan1", pass1 = getpass.getpass())
+    hi = Contacts("shreyashirday","shreyas1")
     #hi.PrintAllContacts()
     print hi.email('Jacob Butler')
 

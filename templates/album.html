@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <html>
+  	<head>
+  		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+  		<title>Album</title>
+  	</head>
+  	<body>
+      <form method = "post" action="{{ url_for('upload')}}" enctype="multipart/form-data">
+        <div class="file-field input-field">
+          <input class="file-path validate" type="text"/>
+            <div class="btn">
+              <span>File</span>
+              <input type="file" name="fileInput"/>
+              <input type = "submit"/>
+            </div>
+        </div>
+      </form>
+
+      <table>
+        <img src = "{{filename}}"/>
+      </table>
+    </body>
+
+  	</body>
+  </html>
