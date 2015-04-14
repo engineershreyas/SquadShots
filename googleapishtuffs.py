@@ -40,7 +40,7 @@ class Contacts(object):
         return 'No contact email found for this person'
 
 def main():
-    hi = Contacts("shreyashirday","shreyas1")
+    hi = Contacts(input("Enter Google Username: "),getpass.getpass("Enter Google Password: "))
     #hi.PrintAllContacts()
     print hi.email('Jacob Butler')
 
