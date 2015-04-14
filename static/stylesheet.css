@@ -15,3 +15,13 @@ img{
   margin-left: auto;
   margin-right: auto;
 }
+table.center {
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+body{
+  height: 40em;
+  width: 80em;
+  background-color: #99FFCC;
+}

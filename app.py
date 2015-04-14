@@ -51,7 +51,12 @@ def download():
         blob_service.get_blob_to_path('album','image','static/output.png')
     except Exception as e:
         print e
-    blobs = blob_service.list_blobs('album')
+    blobs = blob_service.list_blobs('album',None,None,None,'metadata',None)
+    for blob in blobs:
+        if blob.metadata != None:
+            for key in blob.metadata:
+                if (blob.metadata)[key] == session['username']:
+                        blob_service.get_blob_to_path('album',blob.name,'static/output.png')
     for i in blob_service.list_containers():
         print "This container is " + i.name
 
@@ -176,6 +181,7 @@ def handle_authentication():
         instagram_client = client.InstagramAPI(client_id=instagram_client_id, client_secret=instagram_client_secret,redirect_uri=redirect_url)
         access_token, instagram_user = instagram_client.exchange_code_for_access_token(code)
 
+        next_page = "http://127.0.0.1:5000" + url_for('main_page')
 
 
         session['username']  = instagram_user['username']
@@ -189,7 +195,7 @@ def handle_authentication():
         #return redirect(auth_uri)
 
 
-        next_page = "http://127.0.0.1:5000" + url_for('main_page')
+
         people, next = api.user_follows(instagram_user['id'])
         while next:
             people, next = api.user_follows(with_next_url=next)
@@ -198,7 +204,7 @@ def handle_authentication():
                 name = user.full_name
                 print name
                 get_face_in_photo(photo_url, name, user.id, access_token, False, None, None)
-
+        
         return redirect(next_page)
 
 
